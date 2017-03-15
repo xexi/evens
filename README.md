@@ -1,11 +1,10 @@
 <img src="http://postfiles5.naver.net/MjAxNzAzMTVfMjMz/MDAxNDg5NTY4NjY0OTEw.NW1l-5VOppvl5pdxBfUnBJGv5bmnM7NM6sPoUr4fNQwg.c44oVld7u1gitW1YDpk-B9qGKrTKlkqSrfkjGpQyllYg.PNG.synth9/ev.PNG?type=w2"></img>
 <br> beta version release.. <br>
-#simple query
+# simple query
 ```
 "use strict";
 let evens = require('evens').mysql;
-let conf = require('./db').singleConfig; // your DB config
-			         // ex> singleConfig = {  host     : '127.0.0.1', ... }
+let conf = require('./db').singleConfig;
 let t = new evens(conf);
 
 let plan = [ { query: 'SELECT * FROM gym'}];
@@ -13,13 +12,11 @@ t.query(plan);
 t.on('end', (r)=>{ console.log(r.esult); });
 ```
 <br>
-#advanced query
+# advanced query
 ```
 "use strict";
 let evens = require('evens').mysqlPool;
-let pool = require('./db').pool; // your DB pool
-                                 // ex> var mysql = require('mysql');
-                                 // var pool  = mysql.createPool({});
+let pool = require('./db').pool; // your DB pool ex> var mysql = require('mysql'); var pool  = mysql.createPool({});
 
 let plan = [ {
   query: { sql: 'UPDATE gym SET name = ? WHERE id = \'bird\'', timeout : 500000 },
