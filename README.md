@@ -11,7 +11,8 @@ let plan = [ { query: 'SELECT * FROM gym'}];
 t.query(plan);
 t.on('end', (r)=>{ console.log(r.esult); });
 ```
-<br>
+<br><br>
+
 # advanced query
 ```
 "use strict";
