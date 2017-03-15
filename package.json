@@ -1,0 +1,27 @@
+{
+  "name": "evens",
+  "version": "0.0.2",
+  "description": "unleash the power of event",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mysql": "^2.13.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xexi/evens.git"
+  },
+  "keywords": [
+    "event",
+    "mysql",
+    "mongodb"
+  ],
+  "author": "Hyper",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xexi/evens/issues"
+  },
+  "homepage": "https://github.com/xexi/evens#readme"
+}
