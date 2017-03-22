@@ -34,7 +34,7 @@ let plan = [ {
   query: 'SELECT * FROM gym '
 }, {
   query: 'SELECT * FROM gym WHERE id = ? and name = ? order by id asc ',
-  preValues: [ { 1: 'id' }, { 1: 'name'} ] // get plan[1] query result with desired column
+  preValues: [ { 1: 'id' }, { 1: 'name'} ] // get plan[1] query result with desired column name
 }, {
   customData : [ 1 ],
   customQuery : (data, goOnData) => {
@@ -58,7 +58,7 @@ let plan = [ {
 }, {
   customQuery : (data, goOnData)=>{
     if(goOnData.switch==='on') return {query: 'SELECT * FROM day'}; // you can change program flow by goOnData
-    return { query:'end' }; // connection release
+    return { query:'end' }; // connection release // you can simply skip this command if Query is last
   }
 } ];
 
