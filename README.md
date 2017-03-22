@@ -1,5 +1,6 @@
 <img src="http://postfiles5.naver.net/MjAxNzAzMTVfMjMz/MDAxNDg5NTY4NjY0OTEw.NW1l-5VOppvl5pdxBfUnBJGv5bmnM7NM6sPoUr4fNQwg.c44oVld7u1gitW1YDpk-B9qGKrTKlkqSrfkjGpQyllYg.PNG.synth9/ev.PNG?type=w2"></img>
-<br> prototype version.. 
+<br><b>someone who hates callback or promise</b>
+<br> - prototype version
 <br><br>
 sample mysql DB
 <br>
