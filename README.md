@@ -1,8 +1,8 @@
 <img src="http://postfiles5.naver.net/MjAxNzAzMTVfMjMz/MDAxNDg5NTY4NjY0OTEw.NW1l-5VOppvl5pdxBfUnBJGv5bmnM7NM6sPoUr4fNQwg.c44oVld7u1gitW1YDpk-B9qGKrTKlkqSrfkjGpQyllYg.PNG.synth9/ev.PNG?type=w2"></img>
 <br><b>someone who hates callback or promise</b>
-<br> - prototype version
+<br><b> - still in the development process don't use </b>
 <br><br>
-sample mysql DB
+<b>sample mysql DB</b>
 <br>
 <img src="http://postfiles12.naver.net/MjAxNzAzMjJfNSAg/MDAxNDkwMTUwODY4MTQ4.Z5KxDrrNyRgB42XJMAkGEPAT88DD8nWrhaHgWWQdNQsg.g9mqlU1JUriax-jNoBElUIfiyVRiXgVSz7V0uj9dmU4g.PNG.synth9/dd.PNG?type=w2"></img>
 <br><br>
@@ -37,7 +37,7 @@ let plan = [ {
   preValues: [ { 1: 'id' }, { 1: 'name'} ] // get plan[1] query result with desired column
 }, {
   customData : [ 1 ],
-  customQuery : (data) => {
+  customQuery : (data, goOnData) => {
     // just give a number to customData you can retrive all plan[1] query result 
     return { query: 'SELECT * FROM gym '};
   }
@@ -52,13 +52,13 @@ let plan = [ {
         goOnData: goOnData 
       };
     } else {
-      return 'end';
+      return { query:'pass' }; // just skip
     }
   }
 }, {
   customQuery : (data, goOnData)=>{
     if(goOnData.switch==='on') return {query: 'SELECT * FROM day'}; // you can change program flow by goOnData
-    return 'end';
+    return { query:'end' }; // connection release
   }
 } ];
 
