@@ -29,17 +29,23 @@ let pool = require('./db').pool; // your DB pool ex> var mysql = require('mysql'
 let plan = [ {
   query: { sql: 'UPDATE gym SET name = ? WHERE id = \'bird\'', timeout : 500000 },
   values: ['gym'],
-  goOnData: { switch : 'off' }
+  goOnData: { switch : 'off' } // must assign if you're using this data
 }, {
   query: 'SELECT * FROM gym '
 }, {
   query: 'SELECT * FROM gym WHERE id = ? and name = ? order by id asc ',
   preValues: [ { 1: 'id' }, { 1: 'name'} ] // get plan[1] query result with desired column name
 }, {
-  customData : [ 1 ],
-  customQuery : (data, goOnData) => {
+  customData : [ 5 ],
+  customQuery : (data) => {
     // just give a number to customData you can retrive all plan[1] query result 
-    return { query: 'SELECT * FROM gym '};
+    if(data){
+      return { query: 'SELECT * FROM gym '};
+    } else {
+      return 'pass'; /* must consider customData exception 
+                        by 'pass' command you can just skip this query
+                        or you can just quit process and end connection by 'end' command */
+    }
   }
 }, {
   // if query result not matched do not query
@@ -52,13 +58,12 @@ let plan = [ {
         goOnData: goOnData 
       };
     } else {
-      return { query:'pass' }; // just skip
+      return 'pass'; 
     }
   }
 }, {
   customQuery : (data, goOnData)=>{
-    if(goOnData.switch==='on') return {query: 'SELECT * FROM day'}; // you can change program flow by goOnData
-    return { query:'end' }; // connection release // you can simply skip this command if Query is last
+    if(goOnData.switch==='on') return {query: 'SELECT * FROM day'}; // you can change program flow by goOnData   
   }
 } ];
 
@@ -72,3 +77,12 @@ Q.on('end', (r)=>{
   }
 });
 ```
+
+# todo
+end with using pass exception
+opt.queryTimeout input exception
+naming fix
+
+# furtuer todo 
+test code
+security 
