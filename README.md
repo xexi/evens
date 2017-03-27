@@ -29,14 +29,11 @@ let pool = require('./db').pool; // your DB pool ex> var mysql = require('mysql'
 let plan = [ {
   query: { sql: 'UPDATE gym SET name = ? WHERE id = \'bird\'', timeout : 500000 },
   values: ['gym'],
-  goOnData: { switch : 'off' } // must assign if you're using this data
+  cData: { switch : 'off' } // must assign if you're going to use data chainning
 }, {
   query: 'SELECT * FROM gym '
 }, {
-  query: 'SELECT * FROM gym WHERE id = ? and name = ? order by id asc ',
-  preValues: [ { 1: 'id' }, { 1: 'name'} ] // get plan[1] query result with desired column name
-}, {
-  customData : [ 5 ],
+  customData : [ 1 ],
   customQuery : (data) => {
     // just give a number to customData you can retrive all plan[1] query result 
     if(data){
@@ -49,21 +46,21 @@ let plan = [ {
   }
 }, {
   // if query result not matched do not query
-  customData : [ { 1: 'name'} ], // you can set static value or query result like preValues
-  customQuery : (data, goOnData) =>{
+  customData : [ { 1: 'name'} ], // you can set static value or query result ( obj,str,arr )
+  customQuery : (data, cData) =>{
     if(data[0]==='gym'){
-      goOnData['switch'] = 'on'; // let's get more tricky
+      cData['switch'] = 'on'; // let's get more tricky
       return {
         query: 'SELECT * FROM ' + data[0],
-        goOnData: goOnData 
+        cData: cData 
       };
     } else {
       return 'pass'; 
     }
   }
 }, {
-  customQuery : (data, goOnData)=>{
-    if(goOnData.switch==='on') return {query: 'SELECT * FROM day'}; // you can change program flow by goOnData   
+  customQuery : (data, cData)=>{
+    if(cData.switch==='on') return {query: 'SELECT * FROM day'}; // you can change program flow by cData   
   }
 } ];
 
