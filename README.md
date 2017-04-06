@@ -67,7 +67,7 @@ let plan = [ {
 let Q = new evens(pool, {queryTimeout: 10000}); // set general query timeout
 Q.query(plan);
 Q.on('end', (r)=>{
-  if(r.pass){
+  if(r.success){
     console.log(r.esult);    
   } else {
     console.log(JSON.stringify(r)); // err
