@@ -1,5 +1,10 @@
 language: node_js
+
 node_js:
-  - "6.11"
-  - "7.10"
-  - "8.3"
+  - stable
+
+install:
+  - npm install
+
+script:
+  - npm test
