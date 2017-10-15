@@ -1,4 +1,4 @@
-<a href="https://snyk.io/test/github/xexi/evens"><img src="https://snyk.io/test/github/xexi/evens/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/xexi/evens" style="max-width:100%;"></a><br>
+[![Build Status](https://travis-ci.org/xexi/evens.svg?branch=master)](https://travis-ci.org/xexi/evens) &nbsp;<a href="https://snyk.io/test/github/xexi/evens"><img src="https://snyk.io/test/github/xexi/evens/badge.svg" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/xexi/evens" style="max-width:100%;"></a><br>
 <img src="http://postfiles5.naver.net/MjAxNzAzMTVfMjMz/MDAxNDg5NTY4NjY0OTEw.NW1l-5VOppvl5pdxBfUnBJGv5bmnM7NM6sPoUr4fNQwg.c44oVld7u1gitW1YDpk-B9qGKrTKlkqSrfkjGpQyllYg.PNG.synth9/ev.PNG?type=w2"></img>
 <br>
 <br><b>Simple handling of sql queries in nodejs code</b>
@@ -17,7 +17,7 @@
 
 <br>
 #### <b>How to Use ? </b><br><br>
-sample mysql DB
+sample DB
 <br>
 <img src="http://postfiles12.naver.net/MjAxNzAzMjJfNSAg/MDAxNDkwMTUwODY4MTQ4.Z5KxDrrNyRgB42XJMAkGEPAT88DD8nWrhaHgWWQdNQsg.g9mqlU1JUriax-jNoBElUIfiyVRiXgVSz7V0uj9dmU4g.PNG.synth9/dd.PNG?type=w2"></img>
 
