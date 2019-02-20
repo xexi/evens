@@ -25,8 +25,7 @@ sample DB
 ```
 "use strict";
 let evens = require('evens').mysql;
-let conf = require('./db').singleConfig;
-let t = new evens(conf);
+let t = new evens({ host: '127.0.0.1', user: , password: , .... });
 
 let plan = [ { query: 'SELECT * FROM gym'}]; // add more query by { query: 'blabla' }
 t.query(plan);
@@ -38,7 +37,15 @@ t.on('end', (r)=>{ console.log(r.esult); });
 ```
 "use strict";
 let evens = require('evens').mysqlPool;
-let pool = require('./db').pool; // your DB pool ex> var mysql = require('mysql'); var pool  = mysql.createPool({});
+const mysql = require('mysql');
+const pool = mysql.createPool({
+  connectionLimit : 10,
+  host     : '127.0.0.1', 
+  user     : 'example',
+  password : 'your_password',
+  port     : 3306,
+  database : 'your_db'
+});
 
 let plan = [ {
   query: { sql: 'UPDATE gym SET name = ? WHERE id = \'bird\'', timeout : 500000 },
